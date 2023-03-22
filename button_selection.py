@@ -3,32 +3,24 @@ import streamlit as st
 def main():
     st.title("Button Selection App")
     
+    # Define the initial set of user inputs and button options
     user_input = st.text_input("Enter your input:")
-    button_options = {}
+    button_options = ["Option 1", "Option 2", "Option 3"]
     
     while user_input:
-        if len(button_options) == 0:
-            button_options[user_input] = ["Option 1", "Option 2", "Option 3"]
-        else:
-            last_input = list(button_options.keys())[-1]
-            last_button_choice = button_options[last_input].index(user_input)
-            new_input_key = f"{last_input} - {user_input}"
-            button_options[new_input_key] = [f"{new_input_key} - Option {i+1}" for i in range(3)]
-        
-        button_choice = st.button("Select an option", key=user_input)
-        
-        if button_choice:
-            button_options_keys = list(button_options.keys())
-            last_button_choice = button_options_keys.index(user_input)
-            if last_button_choice == len(button_options_keys) - 1:
-                st.write("Thanks for using the Button Selection App!")
+        # Display the current user input and the button options
+        st.write(f"Current input: {user_input}")
+        for i in range(3):
+            button_choice = st.button(f"{button_options[i]}")
+            if button_choice:
+                user_input = f"{user_input} - {button_options[i]}"
                 break
-            next_options = button_options[button_options_keys[last_button_choice+1]]
-            next_input = st.selectbox("Choose an option", options=next_options)
-            user_input = next_input
-        else:
-            break
-
+        
+        # Ask for a new user input and reset the button options
+        user_input = st.text_input("Enter your input:", value=user_input[len(user_input.split()[-1]):].strip())
+        button_options = ["Option 1", "Option 2", "Option 3"]
+    
+    st.write("Thanks for using the Button Selection App!")
 
 if __name__ == "__main__":
     main()
