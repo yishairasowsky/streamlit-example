@@ -20,13 +20,15 @@ def main():
         if button_choice:
             button_options_keys = list(button_options.keys())
             last_button_choice = button_options_keys.index(user_input)
+            if last_button_choice == len(button_options_keys) - 1:
+                st.write("Thanks for using the Button Selection App!")
+                break
             next_options = button_options[button_options_keys[last_button_choice+1]]
             next_input = st.selectbox("Choose an option", options=next_options)
             user_input = next_input
         else:
             break
-    
-    st.write("Thanks for using the Button Selection App!")
+
 
 if __name__ == "__main__":
     main()
