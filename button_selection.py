@@ -27,3 +27,6 @@ def main():
             break
     
     st.write("Thanks for using the Button Selection App!")
+
+if __name__ == "__main__":
+    main()
