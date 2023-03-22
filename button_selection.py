@@ -8,8 +8,10 @@ def main():
     button_options = ["Option 1", "Option 2", "Option 3"]
     
     while user_input:
-        # Display the current user input and the button options
+        # Display the current user input
         st.write(f"Current input: {user_input}")
+        
+        # Display the button options for the current user input
         for i in range(3):
             button_choice = st.button(f"{button_options[i]}")
             if button_choice:
