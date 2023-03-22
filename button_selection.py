@@ -23,4 +23,9 @@ def main():
         button_options = ["Option 1", "Option 2", "Option 3"]
         
         # Update the user input variable
-        user
+        user_input = new_user_input if new_user_input != user_input_value else user_input
+    
+    st.write("Thanks for using the Button Selection App!")
+
+if __name__ == "__main__":
+    main()
