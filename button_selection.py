@@ -16,7 +16,7 @@ def get_next_responses(response):
         responses[numbers[i]] = suggestions[i].strip()
     return responses
 
-def main()
+def main():
     # Define initial user input
     user_input = st.text_input("Enter some text here:")
 
